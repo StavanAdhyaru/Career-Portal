@@ -1,0 +1,63 @@
+
+<form (ngSubmit)="onSubmit(cpUserProfiles.id)"  #CpuserprofileForm="ngForm"> 
+<mat-card>
+    <div  fxFlex class="page-container"  fxLayoutAlign="center">
+        <div fxLayout="column" fxFlex="50%" fxFlex.lt-md="75%" class="form-panel"> 
+      <mat-form-field appearance="outline">
+          <mat-label>Display Name </mat-label>
+          <input matInput [(ngModel)]="cpUserProfiles.displayname" name="displayname" value="{{cpUserProfiles.displayname}}"  required #displayname="ngModel" >
+          <mat-icon matSuffix>person_outline</mat-icon>  
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="cpUserProfiles.email" type="email" name="email" value="{{cpUserProfiles.email}}"  required #email="ngModel" readonly>
+            <mat-icon matSuffix>mail</mat-icon>  
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+              <mat-label>Mobile number</mat-label>
+              <input matInput [(ngModel)]="cpUserProfiles.mobile" type="tel" name="mobile" value="{{cpUserProfiles.mobile}}" required #mobile="ngModel">
+              <mat-icon matSuffix>settings_cell</mat-icon>  
+            </mat-form-field>   
+            <mat-form-field appearance="outline">
+                <mat-label>skills</mat-label>
+                <textarea matInput [(ngModel)]="cpUserProfiles.skills"  name="skills" value="{{cpUserProfiles.skills}}" rows="2"  #skills="ngModel"></textarea>
+                <mat-icon matSuffix>notes</mat-icon>  
+              </mat-form-field> 
+                
+              <mat-form-field appearance="outline">
+                  <mat-label>Date of Birth</mat-label>
+                  <input matInput [(ngModel)]="cpUserProfiles.dob" [matDatepicker]="picker" name="dob" placeholder="Date of Birth" value="cpUserProfiles.dob.value" required #dob="ngModel">
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                 
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                  <mat-label>Summary</mat-label>
+                  <textarea matInput [(ngModel)]="cpUserProfiles.summary" name="summary" rows="4" value="{{cpUserProfiles.summary}}"  #summary="ngModel"></textarea>
+                  <mat-icon matSuffix>notes</mat-icon>  
+                </mat-form-field>   
+                  <mat-form-field appearance="outline">
+                      <mat-label>linkdinUrl</mat-label>
+                      <input matInput [(ngModel)]="cpUserProfiles.linkdinurl" type="url" name="linkdinurl" value="{{cpUserProfiles.linkdinurl}}"  #linkdinurl="ngModel">
+                      <mat-icon matSuffix>linkedin-box</mat-icon>  
+                    </mat-form-field>
+                   <div> 
+                      <span class="mat-h2 mat-title">Resume : </span> 
+                    <input type="file" name="file" id="file" accept="application/msword,application/pdf"  (change)="handleFileInput($event.target.files)" required>
+                    <button mat-flat-button type="button" (click)="onUpload()" color="primary">Upload</button></div>
+                   <br>
+    <div  fxLayout="row" class="page-container"  fxLayoutAlign="space-evenly">
+        <button mat-raised-button type="submit"  color="primary" [disabled]="!CpuserprofileForm.form.valid" class="form-button">
+              Save
+        </button>
+        <a routerLink="/Main/home">
+      <button mat-raised-button color="warn" class="form-button" type="button">
+            Close
+        </button></a>
+    </div>
+    </div>
+  </div>
+  </mat-card>
+  <div>
+      
+  

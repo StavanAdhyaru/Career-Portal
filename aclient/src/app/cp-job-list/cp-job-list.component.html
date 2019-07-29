@@ -1,0 +1,221 @@
+<mat-card><form class="date-block" [formGroup]="filterForm" action="onSubmit()">
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>   
+ &nbsp;&nbsp;&nbsp;&nbsp;
+      
+      
+            <mat-form-field>
+              <input matInput 
+              [matDatepicker]="fromDate" 
+                placeholder="From Date" 
+                formControlName="fromDate">
+                <mat-datepicker-toggle matSuffix [for]="fromDate"></mat-datepicker-toggle>
+                <mat-datepicker #fromDate></mat-datepicker>
+            </mat-form-field>
+       
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <mat-form-field>
+              <input matInput 
+              
+              [matDatepicker]="toDate" 
+                placeholder="To Date" 
+                formControlName="toDate">
+                <mat-datepicker-toggle matSuffix [for]="toDate"></mat-datepicker-toggle>
+                <mat-datepicker #toDate></mat-datepicker>
+           </mat-form-field>
+           &nbsp;&nbsp;&nbsp;
+           <button mat-raised-button color="primary" class="primary" (click)="getDateRange(filterForm.value)">Submit</button>
+        </form>
+<div class="page-container">
+  <div class="mat-elevation-z8">
+<table mat-table [dataSource]="datasource" matsort>
+    <ng-container matColumnDef="number">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 15px;color: blue"> No. </th>
+        <td mat-cell *matCellDef="let rowId=index"> {{rowId+1}} </td>
+      </ng-container> 
+  <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 15px;color: blue"> Title </th> 
+          <td mat-cell *matCellDef="let element">{{element.title}} </td>
+    </ng-container>
+    <ng-container matColumnDef="designation">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 15px;color: blue"> Designation </th>
+      <td mat-cell *matCellDef="let element"> {{element.designation}} </td>
+    </ng-container>
+    <ng-container matColumnDef="postDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 15px;color: blue"> Post Date </th>
+        <td mat-cell *matCellDef="let element"> {{element.create_date  | date: 'dd/MM/yyyy'}} </td>
+      </ng-container>
+
+    <ng-container matColumnDef="Action">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 15px;color: blue"> Action </th> 
+          <td mat-cell *matCellDef="let element"><a [routerLink]="['/Main/jobId',element.id]"><button mat-raised-button color="primary">Apply</button></a> </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+ 
+</table>  
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+</div>
+</div>
+</mat-card>
+
+<!--<mat-list>
+  <mat-list-item *ngFor="let cpJob of cpJobs">
+    <h3 matLine> {{cpJob.title}} </h3>
+    <p matLine> {{cpJob.description}} </p>
+    <button mat-button (click)="find(cpJob.id)">apply</button>
+  </mat-list-item>
+</mat-list>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<ui5-list ngFor="let cpJob of cpJob">
+    <ui5-li>{{cpJob.id}}  </ui5-li>
+  </ui5-list>
+<div class="card my-5">
+    <div class="card-body">
+      <ui5-table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">Title</th>
+            <th scope="col">description</th>
+            <th scope="col">qualification</th>
+            <th scope="col">ctc</th>
+            <th scope="col">designation</th>
+            <th scope="col">employment_type</th>
+            <th scope="col">isactive</th>
+            <th scope="col">create_uid</th>
+            <th scope="col">write_uid</th>
+            <th scope="col">create_date</th>
+            <th scope="col">write_date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cpJob of cpJobs">
+            <td>{{cpJob.id}}</td>
+            <td>{{cpJob.title}}</td>
+            <td>{{ cpJob.description}}</td>
+            <td>{{ cpJob.qualification}}</td>
+            <td>{{ cpJob.ctc}}</td>
+            <td>{{ cpJob.designation}}</td>
+            <td>{{ cpJob.employment_type}}</td>
+            <td>{{ cpJob.isactive}}</td>
+            <td>{{ cpJob.create_uid }}</td>
+            <td>{{ cpJob.write_uid }}</td>
+            <td>{{ cpJob.create_date }}</td>
+            <td>{{ cpJob.write_date }}</td>
+          </tr>
+        </tbody>
+      </ui5-table>
+    </div>
+  </div> 
+
+
+
+
+
+  <div *ngFor="let cpJob of cpJobs">
+    {{cpJob.id}})<br>
+    Title : <a href="cp-job-list.component.html">{{cpJob.title}}</a><br>
+    Description of the Job : {{cpJob.description}}<br>
+    Qualification needed : {{cpJob.qualification}}<br>
+    ctc : {{cpJob.ctc}}<br>
+    Designation : {{cpJob.designation}}<br>
+    employment_type  : {{cpJob.employment_type}}<br>
+    <ui5-button> apply</ui5-button>
+
+  </div>-->
+
+  <!--  <script>
+          document.getElementById('job-selector').addEventListener("selectionchange",function (event){
+            var selectedItems =   event.detail.selectedItems;
+            selected(selectedItems.id);
+
+          })
+      </script>-->
+
+
+
+     <!-- <!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+<script>
+    document.getElementById('country-selector').addEventListener("selectionChange", function (event) {
+      var selectedItems = event.detail.selectedItems;
+  
+      alert("The selected item:  " + selectedItems[0].textContent);
+    });
+  </script>
+</head>
+<body>
+  
+           <div > 
+              <h1>All Jobs</h1>
+        <ui5-list  *ngFor="let cpJob of cpJobs" id="job-selector"  mode="SingleSelect" separators="none" class="full-width">
+           
+                 <ui5-li  description="{{cpJob.description}} , {{cpJob.qualification}}">{{cpJob.title}} </ui5-li>
+       </ui5-list>
+       </div>
+
+</body>
+</html>-->
+<!--<ui5-list id="Job-list" mode="SingleSelect" (selectionChange)="handleChangeSelection($event)">
+    <ng-container *ngFor="let cpJob of cpJobs">
+        <ui5-li-custom
+          [key]="cpJob.id"
+          [id]="cpJob.id"
+          [selected]="cpJob.done || undefined"
+          [data-key]="cpJob.id"
+          ng-class="{ 'hidden': cpJoob.hidden }"
+        >
+  
+          <div class="li-content">
+            <span>{{cpJob.title}}  -- {{cpJob.description}}</span>
+            <div>
+              <ui5-button (ui5-press)="find(cpJob.id)" class="edit-btn">view</ui5-button>
+              
+            </div>
+          </div>
+  
+        </ui5-li-custom>
+    </ng-container>
+  </ui5-list>-->
+      
+ 

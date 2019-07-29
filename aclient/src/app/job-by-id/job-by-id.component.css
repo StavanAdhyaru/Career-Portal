@@ -1,0 +1,15 @@
+.footer {
+    position: fixed;
+    left:0;
+    right:600px;
+    bottom: 200px;
+    width: 100%;
+    font-size: 20px;
+    color: white;
+    text-align: right;
+  }
+  .example-card {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+  }

@@ -1,0 +1,21 @@
+export class ApplicationTable {
+    id:BigInteger;
+    title:String;
+    description:String;
+    qualification:String;
+    ctc:DoubleRange;
+    designation:String;
+    employment_type:String;
+    userid:BigInteger;
+    jobid:BigInteger;
+    statusid:BigInteger;
+    notes:String;
+    uid:BigInteger;
+    displayname:String;
+    email:String;
+    mobile:String;
+    skills:String;
+    dob:Date;
+    linkdinurl:String;
+    create_date:Date;
+}

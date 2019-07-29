@@ -1,0 +1,76 @@
+<mat-card>
+  <mat-card-title style="display:flex;justify-content:center;align-items:center;" class="mat-display-3">
+    {{cpJob.title}}
+  </mat-card-title>
+  <mat-card-content>
+    <div fxFlex class="page-container" fxLayoutAlign="center">
+      <div fxLayout="column" fxFlex="50%" fxFlex.lt-md="75%">
+        <div fxLayout="row" fxFlex>
+          <span class="mat-h2 mat-title">Designation : </span> 
+          <span class="mat-h3 mat-subheading-2">{{cpJob.designation}}</span>
+        </div>
+        <div fxLayout="row" fxFlex>
+        <span class="mat-h2 mat-title">Description: </span> <span
+          class="mat-h3 mat-subheading-2">{{cpJob.description}} </span></div>
+          <div fxLayout="row" fxFlex>
+          <span class="mat-h2 mat-title">Qualification: </span> <span
+          class="mat-h3 mat-subheading-2">{{cpJob.qualification}}</span></div>
+          <div fxLayout="row" fxFlex>
+        <span class="mat-h2 mat-title">Employment Type : </span> <span
+          class="mat-h3 mat-subheading-2">{{cpJob.employment_type}}</span></div>
+          <div fxLayout="row" fxFlex>
+          <span class="mat-h2 mat-title">CTC : </span> <span class="mat-h3 mat-subheading-2">
+          {{cpJob.ctc}}</span></div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+<mat-card>
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field> 
+<div class="page-container">
+    <div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource" matsort >
+      <ng-container matColumnDef="number" >
+          <th mat-header-cell *matHeaderCellDef style="font-size: 15px;color: blue"> No. </th>
+          <td mat-cell *matCellDef="let rowId=index"> {{rowId+1}} </td>
+        </ng-container> 
+    <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 15px;color: blue"> Name </th> 
+            <td mat-cell *matCellDef="let element">{{element.displayname}} </td>
+      </ng-container>
+      <ng-container matColumnDef="email">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 15px;color: blue"> Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+      </ng-container>
+      <ng-container matColumnDef="mobile">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 15px;color: blue"> Mobile</th>
+          <td mat-cell *matCellDef="let element">{{element.mobile}}</td>
+        </ng-container>
+        <ng-container matColumnDef="dob">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 15px;color: blue"> DOB</th>
+            <td mat-cell *matCellDef="let element">{{element.dob}}</td>
+          </ng-container>
+          
+          <ng-container matColumnDef="linkdinurl">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header  style="font-size: 15px;color: blue"> LinkdinUrl</th>
+            <td mat-cell *matCellDef="let element"><a href="{{element.linkdinurl}}">{{element.linkdinurl}}</a></td>
+          </ng-container> 
+          <ng-container matColumnDef="appliedDate">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header  style="font-size: 15px;color: blue"> Applied Date</th>
+              <td mat-cell *matCellDef="let element">{{element.create_date | date: 'dd/MM/yyyy'}}</td>
+            </ng-container> 
+          <ng-container matColumnDef="download">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 15px;color: blue"> Resume</th>
+            <td mat-cell *matCellDef="let element"><a href="http://localhost:8080/CPService.svc/download/file/{{element.userid}}"><button mat-raised-button color="primary"><mat-icon>cloud_download</mat-icon> </button></a></td>
+          </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns;sticky: true"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+   
+  </table>  
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  
+  </div>
+  </div>
+</mat-card>

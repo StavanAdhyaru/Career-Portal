@@ -1,0 +1,56 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-header>
+      <img src="assets/yalogo-trans.png" height="50px" width="50px">    
+  </mat-toolbar-header> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Create Account
+  </mat-toolbar>
+<form (ngSubmit)="onSubmit()"  #AddUserForm="ngForm"> 
+  <mat-card>
+      <div  fxFlex class="page-container"  fxLayoutAlign="center">
+          <div fxLayout="column" fxFlex="50%" fxFlex.lt-md="75%" class="form-panel"> 
+          
+          <mat-form-field appearance="outline">
+            <mat-label>Email / Username</mat-label>
+            <input matInput [(ngModel)]="addUser.username" type="email" name="username" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  placeholder="Username should be your email id"  required #username="ngModel">
+            <mat-icon matSuffix>email</mat-icon>  
+          </mat-form-field>   
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput [(ngModel)]="addUser.password" type="password" name="password"  required #password="ngModel">
+                <mat-icon matSuffix>lock</mat-icon>  
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                  <mat-label> confirm Password</mat-label>
+                  <input matInput type="password" [(ngModel)]="addUser.confirmpassword" name="confirmpassword" required #confirmpassword='ngModel'>
+                  <mat-icon matSuffix>lock</mat-icon>  
+                </mat-form-field>
+            <mat-form-field appearance="outline">
+            <mat-label>Name </mat-label>
+            <input matInput [(ngModel)]="addUser.displayname" name="displayname" required #displayname="ngModel" >
+            <mat-icon matSuffix>person_outline</mat-icon>  
+          </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Mobile number</mat-label>
+                <input matInput [(ngModel)]="addUser.mobile" type="tel" pattern="[7-9]{1}[0-9]{9}" name="mobile" required #mobile="ngModel">
+                <mat-icon matSuffix>settings_cell</mat-icon>  
+              </mat-form-field>   
+                  
+                <mat-form-field appearance="outline">
+                    <mat-label>Date of Birth</mat-label>
+                    <input matInput [(ngModel)]="addUser.dob" [matDatepicker]="picker" name="dob" placeholder="Date of Birth" required #dob="ngModel">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+      <div  fxLayout="row" class="page-container"  fxLayoutAlign="space-evenly">
+          <button mat-raised-button type="submit"  color="primary" [disabled]="!AddUserForm.form.valid" class="form-button">
+                Submit
+          </button>
+          <a routerLink="">
+        <button mat-raised-button color="warn" class="form-button" type="button">
+              Cancel
+          </button></a>
+      </div>
+      </div>
+    </div>
+    </mat-card>
+  </form>

@@ -1,0 +1,39 @@
+<div class="card my-5">
+    <div class="card-body">
+      <ui5-table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">id</th>
+            <th scope="col">File Type</th>
+            <th scope="col">File Name</th>
+            <th scope="col">File Path</th>
+            <th scope="col">Length</th>
+            <th scope="col">create_uid</th>
+            <th scope="col">write_uid</th>
+            <th scope="col">create_date</th>
+            <th scope="col">write_date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cpDocument of cpDocuments">
+            <td>{{cpDocument.id}}</td>
+            <td>{{cpDocument.filetype}}</td>
+            <td>{{ cpDocument.filename}}</td>
+            <td>{{ cpDocument.filepath}}</td>
+            <td>{{ cpDocument.length}}</td>
+            <td>{{ cpDocument.create_uid }}</td>
+            <td>{{ cpDocument.write_uid }}</td>
+            <td>{{ cpDocument.create_date }}</td>
+            <td>{{ cpDocument.write_date }}</td>
+          </tr>
+        </tbody>
+      </ui5-table>
+    </div>
+  </div> 
+
+  
+  <ui5-list header-text="Documents" separators="none" class="full-width">
+      <div *ngFor="let cpDocument of cpDocuments">
+    <ui5-li description="{{cpDocument.filetype}} , {{cpDocument.filepath}}">{{cpDocument.filename}} </ui5-li>
+  </div>
+  </ui5-list><br>

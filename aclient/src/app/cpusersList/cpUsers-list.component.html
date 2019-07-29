@@ -1,0 +1,55 @@
+<mat-card>
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+      </mat-form-field>
+      <span class="example-spacer"></span>
+      <a routerLink="/Main/newAdmin"><button mat-raised-button color="primary">Create User </button></a>
+    </mat-toolbar-row>
+  </mat-toolbar>
+  <div class="page-container">
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource" matSort>
+        <ng-container matColumnDef="number">
+          <th mat-header-cell *matHeaderCellDef style="font-size: 15px;color: blue"> No.</th>
+          <td mat-cell *matCellDef="let rowId=index"> {{rowId+1}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="Name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 15px;color: blue"> Name </th>
+          <td mat-cell *matCellDef="let appliedjobs"> {{appliedjobs.displayname}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 15px;color: blue"> Email </th>
+          <td mat-cell *matCellDef="let appliedJobs"> {{appliedJobs.email}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Mobile No.">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 15px;color: blue"> Mobile No. </th>
+          <td mat-cell *matCellDef="let appliedJobs"> {{appliedJobs.mobile}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Admin">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 15px;color: blue"> Admin </th>
+          <td mat-cell *matCellDef="let appliedJobs">
+            <mat-slide-toggle color="primary" checked= {{appliedJobs.isadmin}} [disabled]=true></mat-slide-toggle>
+          </td>
+        </ng-container>
+        <ng-container matColumnDef="Active">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 15px;color: blue"> Active </th>
+          <td mat-cell *matCellDef="let appliedJobs"><a (click)="onSlide()">
+              <mat-slide-toggle color="primary" [(ngModel)]="appliedJobs.isactive" (change)="isactive(appliedJobs.id)" checked={{appliedJobs.isactive}} ></mat-slide-toggle>
+            </a> </td>
+        </ng-container>
+        <ng-container matColumnDef="view">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header style="font-size: 15px;color: blue"> Action</th>
+          <td mat-cell *matCellDef="let rowId"> <a [routerLink]="['/Main/UserById',rowId.id]"><button mat-raised-button
+                color="primary">Details</button></a></td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns" style="font-size: 15px;color: blue"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+</mat-card>

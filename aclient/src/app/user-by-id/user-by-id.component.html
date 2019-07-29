@@ -1,0 +1,45 @@
+
+    <mat-card>
+        <div  fxFlex class="page-container"  fxLayoutAlign="center">
+            <div fxLayout="column" fxFlex="50%" fxFlex.lt-md="75%" class="form-panel"> 
+                
+          <mat-form-field appearance="outline">
+              <mat-label>Display Name </mat-label>
+              <input matInput [(ngModel)]="cpUserProfile.displayname" name="displayname" value="{{cpUserProfile.displayname}}" rows="5"   readonly required #displayname="ngModel">
+              <mat-icon matSuffix>person_outline</mat-icon>  
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput  type="email" name="email" value="{{cpUserProfile.email}}" readonly >
+                <mat-icon matSuffix>mail</mat-icon>  
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                  <mat-label>Mobile number</mat-label>
+                  <input matInput type="tel" name="mobile" value="{{cpUserProfile.mobile}}"  readonly>
+                  <mat-icon matSuffix>settings_cell</mat-icon>  
+                </mat-form-field>   
+                <mat-form-field appearance="outline">
+                    <mat-label>skills</mat-label>
+                    <textarea input  matInput  name="skills" value="{{cpUserProfile.skills}}" rows="2" readonly></textarea>
+                    <mat-icon matSuffix>notes</mat-icon>  
+                  </mat-form-field> 
+                    
+                  <mat-form-field appearance="outline">
+                      <mat-label>Date of Birth</mat-label>
+                      <input matInput type="date" name="dob" placeholder="Date of Birth" value="{{cpUserProfile.dob}}" readonly>
+                      <mat-icon matSuffix>date_range</mat-icon>
+                    </mat-form-field>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Summary</mat-label>
+                        <textarea matInput  name="summary" value="{{cpUserProfile.summary}}" rows="2" readonly></textarea>
+                        <mat-icon matSuffix>notes</mat-icon>  
+                      </mat-form-field>     
+                      <mat-form-field appearance="outline">
+                          <mat-label>linkdinUrl</mat-label>
+                          <input matInput type="url" name="linkdinurl" value="{{cpUserProfile.linkdinurl}}" readonly>
+                          <mat-icon matSuffix>linkedin-box</mat-icon>
+                        </mat-form-field>
+        </div>
+      </div>
+      </mat-card>
+   

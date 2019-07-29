@@ -1,0 +1,62 @@
+<mat-card>
+    <mat-card-content style="font-size: 20px">
+               
+            <mat-card-title style="display:flex;justify-content:center;align-items:center;">
+                {{cpJob.title}}
+              </mat-card-title>
+    </mat-card-content>
+</mat-card>
+<form (ngSubmit)="onSubmit(cpJob.id)" #AdminjobdetailForm="ngForm">
+<mat-card>
+    <div  fxFlex class="page-container"  fxLayoutAlign="center">
+        <div fxLayout="column" fxFlex="50%" fxFlex.lt-md="75%" class="form-panel"> 
+            <mat-form-field appearance="outline">
+                <mat-label>Title of the job</mat-label>
+                <input matInput  [(ngModel)]="cpJob.title" name="title" value="{{cpJob.title}}" required #title="ngModel" >
+                <mat-icon matSuffix>title</mat-icon>  
+              </mat-form-field> 
+      <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+          <textarea matInput [(ngModel)]="cpJob.description" name="description" value="{{cpJob.description}}" rows="5" required #description="ngModel"></textarea>
+          <mat-icon matSuffix>notes</mat-icon>  
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Qualification</mat-label>
+            <textarea matInput [(ngModel)]="cpJob.qualification" name="qualification" value="{{cpJob.qualification}}" rows="3" required #qualification="ngModel"></textarea>
+            <mat-icon matSuffix>notes</mat-icon>  
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+              <mat-label>Designation</mat-label>
+              <textarea matInput [(ngModel)]="cpJob.designation" name="designation" value="{{cpJob.designation}}" rows="5" required #designation="ngModel"></textarea>
+              <mat-icon matSuffix>notes</mat-icon>  
+            </mat-form-field>   
+              <mat-form-field appearance="outline">
+                  <mat-label>Employment Type</mat-label>
+                  <mat-select [(ngModel)]="cpJob.employment_type" name="employment_type" value="{{cpJob.employment_type}}" required #employment_type="ngModel">
+                    <mat-option value="Contactor">
+                      Contractor
+                    </mat-option>
+                    <mat-option value="FullTime">
+                        FullTime
+                      </mat-option>
+                  </mat-select>
+                  <mat-icon matSuffix>notes</mat-icon>  
+           </mat-form-field>   
+              <mat-form-field appearance="outline">
+                <mat-label>CTC</mat-label>
+                <input matInput [(ngModel)]="cpJob.ctc" type="number" name="ctc" value="{{cpJob.ctc}}" required #ctc="ngModel">
+                <mat-icon matSuffix>notes</mat-icon>  
+              </mat-form-field>    
+    <div  fxLayout="row" class="page-container"  fxLayoutAlign="space-evenly">
+        <button mat-raised-button color="primary" [disabled]="!AdminjobdetailForm.form.valid" class="form-button">
+         Save
+        </button>
+        <a routerLink="/Main/allAdminJobs">  <button mat-raised-button color="warn" class="form-button" type="button">
+          cancel
+        </button></a>
+
+    </div>
+    </div>
+  </div>
+  </mat-card>
+</form>

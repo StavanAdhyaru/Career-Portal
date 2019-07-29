@@ -1,0 +1,16 @@
+.uf_padding {
+    padding-right: 10px;    
+}
+
+.form-container {
+    align-items: center;    
+}  
+
+.page-contaier {
+    margin: 10px;
+    background-color: whitesmoke;
+}
+
+button{
+    margin-right: 10px;
+}

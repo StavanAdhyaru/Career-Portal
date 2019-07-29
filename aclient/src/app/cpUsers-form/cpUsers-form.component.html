@@ -1,0 +1,47 @@
+
+
+
+    <!--<form (ngSubmit)="onSubmit()" #CpUsersForm="ngForm">
+
+        <ui5-input [(ngModel)]="cpUser.username" id="username" name="username" #username="ngModel"></ui5-input>
+        Password<input type="text" [(ngModel)]="cpUser.password" name="password" required><br>-->
+     
+  <!--     <div class="form-group">
+          <ui5-lable for="username" required> username</ui5-lable>
+          <ui5-input [(ngModel)]="cpUser.username" name="username" placeholder="Enter username" #username="ngModel">
+              <input [(ngModel)]="cpUser.username" name="username" placeholder="Enter username"
+              required #username="ngModel">  
+          </ui5-input>
+      
+          <div [hidden]="!username.pristine" class="alert alert-danger">username is required</div>
+          
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" [(ngModel)]="cpUser.password" 
+          class="form-control" id="password" name="password" placeholder="Enter salary"
+          required #password="ngModel">
+        <div [hidden]="!password.pristine" class="alert alert-danger">password required</div>
+      </div>-->
+
+  
+      
+     <!-- <button type="submit" [disabled]="!CpUsersForm.form.valid" class="btn btn-info">Submit</button>
+    </form>-->
+    
+    <form (ngSubmit)="onSubmit()" #CpUsersForm="ngForm">
+      <mat-form-field>
+    <input matInput type="text" [(ngModel)]="cpUser.username" name="username" placeholder="username" required #username="ngModel">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+  <input matInput type="password" [(ngModel)]="cpUser.password" name="password" placeholder="password" required #password="ngModel">
+  </mat-form-field>
+  <br>
+  <mat-checkbox [(ngModel)]="cpUser.isactive" name="isactive" #isactive="ngModel">active</mat-checkbox><br>
+  
+  <button mat-fab type="submit" [disabled]="!CpUsersForm.form.valid" class="btn btn-info" >Submit</button>
+</form>
+  
+

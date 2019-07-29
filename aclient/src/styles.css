@@ -1,0 +1,33 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+body {
+    height: 100%;
+}
+
+body{
+    margin:0; 
+
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.mat-h3, .mat-subheading-2, .mat-typography h3 {
+    font: 400 16px/28px Roboto,"Helvetica Neue",sans-serif;
+    margin: 0 0 16px;
+    padding: 4px;
+    font-size: 18px;
+}   
+.example-icon {
+    padding: 0 14px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  .mat-toolbar {
+    background: #ffffff;
+    color: rgba(0,0,0,.87);
+}
+
+mat-slide-toggle.mat-disabled {
+  opacity: 0.75 !important;
+}

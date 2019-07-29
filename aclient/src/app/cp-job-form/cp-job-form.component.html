@@ -1,0 +1,56 @@
+<mat-card style="height:822px">
+<form (ngSubmit)="onSubmit()" #CpjobForm="ngForm">
+    
+        <div  fxFlex class="page-container"  fxLayoutAlign="center">
+            <div fxLayout="column" fxFlex="50%" fxFlex.lt-md="75%" class="form-panel"> 
+                <br>
+                <br>
+              <mat-form-field appearance="outline">
+                <mat-label>Title</mat-label>
+                <input matInput  [(ngModel)]="cpJob.title" name="title" required #title="ngModel">
+                <mat-icon matSuffix>title</mat-icon>  
+            </mat-form-field>     
+          <mat-form-field appearance="outline">
+              <mat-label>Description</mat-label>
+              <textarea matInput rows="5" [(ngModel)]="cpJob.description" name="description" required #description="ngModel"></textarea>
+              <mat-icon matSuffix>notes</mat-icon>  
+            </mat-form-field>
+          <mat-form-field appearance="outline">
+                <mat-label>Qualification</mat-label>
+                <textarea matInput  rows="3"[(ngModel)]="cpJob.qualification" name="qualification" required #qualification="ngModel"></textarea>
+                <mat-icon matSuffix>my_library_books</mat-icon>  
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+                  <mat-label>Designation</mat-label>
+                  <textarea matInput rows="2" [(ngModel)]="cpJob.designation" name="designation" required #designation="ngModel"></textarea>
+                  <mat-icon matSuffix>notes</mat-icon>  
+          </mat-form-field>   
+          <mat-form-field appearance="outline">
+                  <mat-label>Employment Type</mat-label>
+                  <mat-select [(ngModel)]="cpJob.employment_type" name="employment_type" required #employment_type="ngModel">
+                    <mat-option value="Contactor">
+                      Contractor
+                    </mat-option>
+                    <mat-option value="FullTime">
+                        FullTime
+                      </mat-option>
+                  </mat-select>
+                  <mat-icon matSuffix>notes</mat-icon>  
+           </mat-form-field>   
+           <mat-form-field appearance="outline">
+            <mat-label>C.T.C</mat-label>
+            <input matInput [(ngModel)]="cpJob.ctc" name="employment_type" required #ctc="ngModel">
+            <mat-icon matSuffix>attach_money</mat-icon>  
+     </mat-form-field> 
+        <div  fxLayout="row" class="page-container"  fxLayoutAlign="space-evenly">
+            <button type="submit" mat-raised-button color="primary" [disabled]="!CpjobForm.form.valid" class="form-button">
+                Add
+            </button>
+            <button type="reset" mat-raised-button color="warn" class="form-button">
+              Cancel
+            </button>
+        </div>
+        </div>
+      </div>
+  </form>
+</mat-card>

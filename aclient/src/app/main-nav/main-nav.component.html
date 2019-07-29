@@ -1,0 +1,72 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="sidenav"
+    fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)">
+    <mat-toolbar  color="primary" style="background-color:rgb(63, 81, 181)"><a routerLink="/Main/home"><img src="assets/yalogo-trans.png" height="50px" width="50px"></a></mat-toolbar>    
+    <mat-accordion>
+        <mat-expansion-panel *ngIf=cpUser.isadmin>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    User Management
+                  </mat-panel-title>          
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+                <a mat-list-item routerLink="Details" class="sidenavlist">Users</a>
+            </mat-nav-list>          
+        </mat-expansion-panel>
+        <mat-expansion-panel *ngIf=cpUser.isadmin>
+          <mat-expansion-panel-header>
+            <mat-panel-title>
+                Jobs
+              </mat-panel-title>          
+        </mat-expansion-panel-header>
+        <mat-nav-list>
+            <a mat-list-item routerLink="allAdminJobs" class="sidenavlist">All jobs</a>
+            <a mat-list-item routerLink="last" class="sidenavlist">Applications</a>
+        </mat-nav-list>          
+        </mat-expansion-panel>
+      <mat-expansion-panel *ngIf=!cpUser.isadmin>
+          <mat-expansion-panel-header>          
+              <mat-panel-title>
+                Jobs
+              </mat-panel-title>          
+            </mat-expansion-panel-header>
+            <mat-nav-list>
+                <a mat-list-item routerLink="appliedJob" class="sidenavlist">Applied Jobs</a>
+                <a mat-list-item routerLink="jobDetail" class="sidenavlist">All Jobs</a>
+            </mat-nav-list>          
+                 
+      </mat-expansion-panel>    
+    </mat-accordion>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <span class="example-spacer">{{global.headerText}}</span>
+      <button mat-button [matMenuTriggerFor]="menu">{{profile.displayname}}<mat-icon>keyboard_arrow_down</mat-icon></button>
+      <mat-menu #dropdownMenu #menu="matMenu" x-position="before">
+          <a mat-menu-item [routerLink]="['/Main/profileDetail',cpUser.id]">
+              <mat-icon>info_outline</mat-icon>
+              <span>My info</span>
+            </a>  
+            <a mat-menu-item routerLink="/Main/changePassword">
+              <mat-icon>lock</mat-icon>
+              <span>Change Password</span>
+            </a>  
+            <a mat-menu-item (click)="onClick()" routerLink="">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Logout</span>
+          </a>
+          
+          
+        </mat-menu>
+    </mat-toolbar>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+    
+  </mat-sidenav-content>
+</mat-sidenav-container>

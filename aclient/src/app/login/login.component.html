@@ -1,0 +1,35 @@
+
+  <mat-toolbar color="primary">
+    <mat-toolbar-header>
+      <img src="assets/yalogo-trans.png" height="50px" width="50px">
+    </mat-toolbar-header>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login
+  </mat-toolbar>
+  <form (ngSubmit)="onSubmit()" #LoginForm="ngForm">
+  <mat-card style="border-style: none">
+      <div  fxFlex class="page-container"  fxLayoutAlign="center">
+          <div fxLayout="column" fxFlex="25%" fxFlex.lt-md="75%" class="form-panel"> 
+
+    <mat-card-title>Login</mat-card-title>
+   
+    <mat-form-field appearance="outline">
+        <mat-label>Username </mat-label>
+        <input matInput [(ngModel)]="cpUser.username"  placeholder="Username" name="username"   required #username="ngModel" autofocus >
+        <mat-icon matSuffix>person_outline</mat-icon>  
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+          <mat-label>Password </mat-label>
+          <input matInput [(ngModel)]="cpUser.password" type="password" placeholder="Password" name="password"   required #password="ngModel">
+          <mat-icon matSuffix>lock</mat-icon>  
+        </mat-form-field>
+        <div>
+    <button mat-raised-button color="primary" style="width: 100px;">Login</button>
+    
+    <a routerLink ="/createAccount" style="float: right"><button mat-raised-button color="primary" style="width: 100px">Sign Up</button></a><br><br>
+  </div>
+    <!--<a href="jid"> forgot password</a>-->
+
+ </div>
+</div>
+</mat-card>
+</form>

@@ -1,0 +1,40 @@
+<!--<form (ngSubmit)="onSubmit()" #cpUserPofileForm="ngForm">
+<ui5-label for="userid" required>userid </ui5-label>
+<ui5-input [(ngModule)]="cpUserProfile.userid" name="userid" id="userid" placeholder="userid" for="userid"></ui5-input>
+<ui5- [(ngModule)]="cpUserProfile.userid"><input type="text" name="userid" placeholder="userid" ></ui5-><br>
+<ui5-button submits="true" disabled="!cpUserProfileForm.form.valid" class="btn btn-info">Submit</ui5-button>
+</form>-->
+
+<form (ngSubmit)="onSubmit()" #CpuserprofileForm="ngForm">
+        <mat-form-field>
+                <input matInput type="text" [(ngModel)]="cpUserProfile.displayname" name="displayname" placeholder="displayid"  #displayname="ngModel" required>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+                <input matInput type="email" [(ngModel)]="cpUserProfile.email" name="email" placeholder="email" required #email="ngModel">
+        </mat-form-field>
+        <br>
+          <mat-form-field>
+                <input matInput type="tel" [(ngModel)]="cpUserProfile.mobile" name="mobile" placeholder="mobile" required #mobile="ngModel">
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+                 <input matInput type="date" [(ngModel)]="cpUserProfile.dob" name="dob" placeholder="Birthdate" required #dob="ngModel">
+        </mat-form-field>
+                      <br>
+         <mat-form-field>
+                <textarea matInput [(ngModel)]="cpUserProfile.skills" name="skills" placeholder="skills" required #skills="ngModel"></textarea>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+                <input matInput type="url" [(ngModel)]="cpUserProfile.linkdinurl" name="linkdinurl" placeholder="linkdinurl" required #linkdinurl="ngModel">
+        </mat-form-field>
+        <br>
+
+        
+        <mat-checkbox [(ngModel)]="cpUserProfile.isactive" name="isactive" #isactive="ngModel">active</mat-checkbox><br>
+        <button mat-fab type="submit" [disabled]="!CpuserprofileForm.form.valid" class="btn btn-info" >Submit</button>
+</form>
+
+
+

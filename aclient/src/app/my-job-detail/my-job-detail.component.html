@@ -1,0 +1,151 @@
+<mat-card>
+  <mat-card-title style="display:flex;justify-content:center;align-items:center;" class="mat-display-3">
+    {{appliedJob.title}}
+  </mat-card-title>
+  <mat-card-content>
+    <div fxFlex class="page-container" fxLayoutAlign="center">
+      <div fxLayout="column" fxFlex="50%" fxFlex.lt-md="75%">
+        <div fxLayout="row" fxFlex>
+          <span class="mat-h2 mat-title">Designation : </span> 
+          <span class="mat-h3 mat-subheading-2">{{appliedJob.designation}}</span>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="start start">
+        <span class="mat-h2 mat-title">Description: </span> <span
+          class="mat-h3 mat-subheading-2">{{appliedJob.description}} </span></div>
+          <div fxLayout="row" fxFlex>
+          <span class="mat-h2 mat-title">Qualification: </span> <span
+          class="mat-h3 mat-subheading-2">{{appliedJob.qualification}}</span></div>
+          <div fxLayout="row" fxFlex>
+        <span class="mat-h2 mat-title">Employment Type : </span> <span
+          class="mat-h3 mat-subheading-2">{{appliedJob.employment_type}}</span></div>
+          <div fxLayout="row" fxFlex>
+          <span class="mat-h2 mat-title">CTC : </span> <span class="mat-h3 mat-subheading-2">
+          {{appliedJob.ctc}}</span></div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+
+
+
+  <mat-card>
+      <form (ngSubmit)="onSubmit()" #CpUsersForm="ngForm">
+    <div fxFlex class="page-container" fxLayoutAlign="center">
+      <div fxLayout="column" fxFlex="50%" fxFlex.lt-md="75%" class="form-panel">
+        <mat-form-field appearance="outline">
+          <mat-label>Cover Letter</mat-label>
+          <textarea matInput placeholder="Enter notes" [(ngModel)]="appliedJob.notes" name="notes" value="{{appliedJob.notes}}" rows="10" required #notes="ngModel"></textarea>
+          <mat-icon matSuffix>notes</mat-icon>
+        </mat-form-field>
+        <div fxLayout="row" class="page-container" fxLayoutAlign="space-evenly">
+          <button mat-raised-button type="submit" [disabled]="!CpUsersForm.form.valid" color="primary" class="form-button">
+            save
+          </button>
+          <a routerLink="/Main/appliedJob">
+            <button mat-raised-button color="warn" class="form-button" type="button">
+              Cancel
+            </button></a>
+        </div>
+      </div>
+    </div>
+    </form>
+  </mat-card>
+
+<!--<mat-card  style="display:flex;justify-content:center;align-items:center;">
+    <mat-card-content>
+        <mat-card-header style="font-size: 25px"> 
+        Your Details
+          </mat-card-header>
+      <form>
+      <mat-form-field> 
+          <mat-label>File Name</mat-label><input matInput placeholder="filename"> 
+      </mat-form-field>
+      <br>
+      <mat-form-field> 
+          <mat-label>File Type</mat-label> 
+          <mat-select>
+              <mat-option>
+                .pdf
+              </mat-option>
+              <mat-option>
+                .doc
+              </mat-option>
+            </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field> 
+          <mat-label>File Path</mat-label><input matInput placeholder="filepath"> 
+      </mat-form-field>
+      <br>
+      <div ng-app="">
+      <button mat-flat-button color="primary" ng-click="showme=true">Edit</button>&nbsp;
+      <button mat-flat-button color="warn" ng-hide="showme">Delete</button><br><br> 
+      <div>
+     <button mat-flat-button color="primary">Save</button>&nbsp;
+      <button mat-flat-button color="warn">cancel</button>
+    </div>
+  </div>
+      </form>
+    </mat-card-content>
+  </mat-card>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+<mat-card>
+  <form>
+    <div  fxFlex class="page-container"  fxLayoutAlign="center">
+    <div fxLayout="column" fxFlex="50%" fxFlex.lt-md="75%" class="form-panel">
+    <mat-form-field appearance="outline">
+      <mat-label>File Name</mat-label>
+      <input matInput placeholder="Enter File Name"  required>
+      <mat-icon matSuffix>person</mat-icon>  
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+      <mat-label>File path</mat-label>
+      <input matInput placeholder="Enter File path"  required>  
+      <mat-icon matSuffix>mail_outline</mat-icon>  
+    </mat-form-field>
+    
+    <mat-form-field appearance="outline">
+        <mat-label>File type</mat-label>
+        <input matInput placeholder="Enter file type"  required>  
+        <mat-icon matSuffix>code</mat-icon>  
+    </mat-form-field>
+    
+    <div  fxLayout="row" class="page-container"  fxLayoutAlign="space-evenly">
+        <button mat-raised-button color="primary" class="form-button">
+              Edit
+        </button>
+        <button mat-raised-button color="warn" class="form-button" type="button">
+            <mat-icon>clear</mat-icon>
+        </button>
+    </div>
+    </div>
+    </div>
+    
+    
+    </form>
+  </mat-card>-->
